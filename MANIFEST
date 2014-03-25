@@ -9,3 +9,5 @@ dist.ini
 lib/MooX/Role/CachedURL.pm
 t/01-require.t
 t/02-live-test.t
+t/03-expires.t
+t/lib/CPAN/Robots.pm

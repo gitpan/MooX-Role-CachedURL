@@ -1,5 +1,11 @@
 Revision history for Perl module MooX::Role::CachedURL
 
+0.02 2014-03-25
+    - Added 'expires' attribute, which uses Time::Duration::Parse to
+      let you express the expiry time in a variety of ways.
+    - Split out test package into a separate module in t/lib/
+    - Added major todo items to section in pod
+
 0.01 2014-03-22
     - First release to CPAN
 

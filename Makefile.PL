@@ -25,16 +25,20 @@ my %WriteMakefileArgs = (
     "File::HomeDir" => 0,
     "File::Spec::Functions" => 0,
     "HTTP::Tiny" => 0,
-    "Moo::Role" => 0
+    "Moo::Role" => 0,
+    "Time::Duration::Parse" => 0
   },
   "TEST_REQUIRES" => {
+    "File::Touch" => 0,
     "Moo" => 0,
     "Test::File" => 0,
     "Test::More" => "0.88",
+    "autodie" => 0,
+    "lib" => 0,
     "strict" => 0,
     "warnings" => 0
   },
-  "VERSION" => "0.01",
+  "VERSION" => "0.02",
   "test" => {
     "TESTS" => "t/*.t"
   }
@@ -45,11 +49,15 @@ my %FallbackPrereqs = (
   "Carp" => 0,
   "File::HomeDir" => 0,
   "File::Spec::Functions" => 0,
+  "File::Touch" => 0,
   "HTTP::Tiny" => 0,
   "Moo" => 0,
   "Moo::Role" => 0,
   "Test::File" => 0,
   "Test::More" => "0.88",
+  "Time::Duration::Parse" => 0,
+  "autodie" => 0,
+  "lib" => 0,
   "strict" => 0,
   "warnings" => 0
 );

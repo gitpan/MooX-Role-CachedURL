@@ -7,19 +7,9 @@ use Test::More 0.88 tests => 4;
 use Test::File;
 use MooX::Role::CachedURL;
 
-{
-    package
-        CPAN::Robots;
-
-    use Moo;
-    with 'MooX::Role::CachedURL';
-
-    has '+url' => (default => sub { 'http://www.cpan.org/robots.txt' });
-}
-
-package main;
-
+use lib qw(t/lib);
 use CPAN::Robots;
+
 
 my $robots;
 
