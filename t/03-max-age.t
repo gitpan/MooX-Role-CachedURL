@@ -16,7 +16,7 @@ my $toucher = File::Touch->new(mtime => (time() - 1000 * 24 * 60 * 60));
 
 my $robots;
 
-eval { $robots = CPAN::Robots->new(expires => '1 day') };
+eval { $robots = CPAN::Robots->new(max_age => '1 day') };
 
 SKIP: {
     skip("looks like you're offline", 7) if $@ && $@ =~ /failed to mirror/;
@@ -31,7 +31,7 @@ SKIP: {
 
     ok($toucher->touch($robots->path) == 1, "change mtime on cached file");
 
-    eval { $robots = CPAN::Robots->new(expires => '1 day') };
+    eval { $robots = CPAN::Robots->new(max_age => '1 day') };
     skip("looks like you're offline", 4) if $@ && $@ =~ /failed to mirror/;
 
     file_exists_ok($robots->path, "Did the file get cached locally?");

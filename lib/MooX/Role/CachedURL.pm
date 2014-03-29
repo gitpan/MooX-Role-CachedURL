@@ -1,5 +1,5 @@
 package MooX::Role::CachedURL;
-$MooX::Role::CachedURL::VERSION = '0.02';
+$MooX::Role::CachedURL::VERSION = '0.03';
 use 5.006;
 use Moo::Role;
 use File::HomeDir;
@@ -10,7 +10,7 @@ use Carp;
 
 has 'url'     => (is => 'ro');
 has 'path'    => (is => 'rw');
-has 'expires' => (is => 'ro');
+has 'max_age' => (is => 'ro');
 
 sub BUILD
 {
@@ -26,8 +26,8 @@ sub BUILD
 
         $self->path( catfile(File::HomeDir->my_dist_data( $classid, { create => 1 } ), $basename) );
 
-        if (defined($self->expires) && -f $self->path) {
-            my $max_age_in_seconds = parse_duration($self->expires);
+        if (defined($self->max_age) && -f $self->path) {
+            my $max_age_in_seconds = parse_duration($self->max_age);
             return unless time() - $max_age_in_seconds > (stat($self->path))[9];
         }
 
@@ -58,6 +58,13 @@ MooX::Role::CachedURL - a role providing a locally cached copy of a remote file
     # $self->path has the path to the local copy of the file
  }
 
+Then in the user of MyClass:
+
+ use MyClass;
+ my $object = MyClass->new(max_age => '2 days');
+ 
+ print "local file is ", $object->path, "\n";
+
 =head1 DESCRIPTION
 
 This role represents a remote file that you want to cache locally, and then process.
@@ -78,15 +85,15 @@ I'll be gradually refactoring them once this role is on CPAN.
 This specifies the URL that should be cached locally.
 It should be over-ridden in the composing class, as shown in the SYNOPSIS above.
 
-=head2 expires
+=head2 max_age
 
-Specifies the expiry time of the local copy, in seconds.
+Specifies the maximum age of the local copy, in seconds.
 We won't even look for a new remote copy if the cached copy is younger than this.
 
-You can specify the expiry time using any of the notations supported by L<Time::Duration::Parse>.
+You can specify max_age using any of the notations supported by L<Time::Duration::Parse>.
 For example:
 
- expires => '2 hours',
+ max_age => '2 hours',
 
 =head1 TODO
 

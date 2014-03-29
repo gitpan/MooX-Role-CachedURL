@@ -1,5 +1,9 @@
 Revision history for Perl module MooX::Role::CachedURL
 
+0.03 2014-03-29
+    - Changed the 'expires' attribute to 'max_age', which feels
+      the right name having read various caching-related things recently.
+
 0.02 2014-03-25
     - Added 'expires' attribute, which uses Time::Duration::Parse to
       let you express the expiry time in a variety of ways.

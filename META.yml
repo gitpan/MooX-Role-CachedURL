@@ -31,4 +31,4 @@ requires:
 resources:
   homepage: https://github.com/neilbowers/MooX-Role-CachedURL
   repository: https://github.com/neilbowers/MooX-Role-CachedURL.git
-version: '0.02'
+version: '0.03'

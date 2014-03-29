@@ -9,5 +9,5 @@ dist.ini
 lib/MooX/Role/CachedURL.pm
 t/01-require.t
 t/02-live-test.t
-t/03-expires.t
+t/03-max-age.t
 t/lib/CPAN/Robots.pm
