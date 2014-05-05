@@ -1,5 +1,12 @@
 Revision history for Perl module MooX::Role::CachedURL
 
+0.05 2014-05-05
+    - Added a test for the 'path' attribute: t/04-path.t
+    - If the cache_path or path attributes reference a file ending with .gz,
+      we assume it's gzip'd and transparently unzip it for you
+      with PerlIO::gzip. This means that large files can be requested and
+      cached gzip'd.
+
 0.04 2014-04-28
     - Split the 'path' into 'path' and 'cache_path' attributes.
       Previously 'path' was used for both the local cache path,

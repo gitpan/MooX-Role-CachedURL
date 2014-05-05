@@ -26,6 +26,7 @@ my %WriteMakefileArgs = (
     "File::Spec::Functions" => 0,
     "HTTP::Tiny" => 0,
     "Moo::Role" => 0,
+    "PerlIO::gzip" => 0,
     "Time::Duration::Parse" => 0
   },
   "TEST_REQUIRES" => {
@@ -38,7 +39,7 @@ my %WriteMakefileArgs = (
     "strict" => 0,
     "warnings" => 0
   },
-  "VERSION" => "0.04",
+  "VERSION" => "0.05",
   "test" => {
     "TESTS" => "t/*.t"
   }
@@ -53,6 +54,7 @@ my %FallbackPrereqs = (
   "HTTP::Tiny" => 0,
   "Moo" => 0,
   "Moo::Role" => 0,
+  "PerlIO::gzip" => 0,
   "Test::File" => 0,
   "Test::More" => "0.88",
   "Time::Duration::Parse" => 0,
