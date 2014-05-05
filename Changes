@@ -1,5 +1,12 @@
 Revision history for Perl module MooX::Role::CachedURL
 
+0.06 2014-05-05
+    - Changed tests 2 and 3 to use a cache path in t/.
+      Two of the tests were reported as failing on some CPAN Testers
+      platforms (inc Linux), when unlinking cache files just created.
+      Updated the code doing the unlinking to report why it fails,
+      so if the tests still fail, I'll get an idea why.
+
 0.05 2014-05-05
     - Added a test for the 'path' attribute: t/04-path.t
     - If the cache_path or path attributes reference a file ending with .gz,
